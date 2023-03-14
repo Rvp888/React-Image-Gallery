@@ -18,10 +18,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const storage = getStorage(app);
+const storage = getStorage(app);
 
-export const fireStore = getFirestore(app);
+const dataBase = getFirestore(app);
 
-export const dataBase = {
-    images: collection(fireStore, 'images')
-}
+const dbCollection = collection(dataBase, "photos");
+
+
+export { storage, dataBase, dbCollection }

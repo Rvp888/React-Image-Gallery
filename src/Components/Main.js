@@ -1,28 +1,14 @@
 import React from "react";
 import Upload from "./Upload";
 import "../CSS/Main.css";
-import { dataBase } from "../Firebase";
-import { getDocs } from "firebase/firestore";
 
-export default function Main() {
+export default function Main(props) {
+
   const [showModal, setShowModal] = React.useState(false);
-  const [images, setImages] = React.useState([]);
 
   const closeModal = () => {
     setShowModal(false);
   };
-
-  React.useEffect(() => {
-    let imageArr = [];
-    getDocs(dataBase.images).then((res) => {
-      imageArr = [...res.docs];
-      imageArr = imageArr.map((ele) => {
-        return ele.data();
-      })
-      setImages([...imageArr]);
-    });
-    
-  },[])
 
   return (
     <div className="main">
@@ -36,9 +22,13 @@ export default function Main() {
       }
       <div className="imageGrid">
         {
-          images.map((ele) => {
+          props.images.map((img) => {
             return (
-              <img key={ele.id} src={ele.filePath} height="200px" width="200px" />
+              <div key={img.id} className="image-div">
+                <img src={img.filePath} className="image" />
+                <h2>{img.tag}</h2>
+                <button onClick={() => props.deleteImage(img.id)}>Remove</button>
+              </div>              
             )
           })
         }

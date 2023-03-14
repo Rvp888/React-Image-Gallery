@@ -1,9 +1,9 @@
 import React from "react";
 import "../CSS/Upload.css";
-import { storage, dataBase } from "../Firebase";
+import { storage, dataBase, dbCollection } from "../Firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { addDoc } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 export default function Upload(props) {
 
@@ -36,15 +36,15 @@ export default function Upload(props) {
 
   const uploadImage = (e) => {
     let obj = {
-      id: uuidv4(),
       filePath: imageURL,
       tag: tag
     }
-    addDoc(dataBase.images, obj).then(() => {
+    addDoc(dbCollection, obj).then(() => {
       console.log('image uploaded  successfully');
     }).catch((err) => {
       console.log(err);
-    })
+    });
+    props.closeModal();
   }
 
   return (
