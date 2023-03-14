@@ -2,6 +2,7 @@
     width: 350px;
     height: 300px;
     padding: 20px;
+    background: white;
     box-shadow: 0 0 5px 2px;
     border-radius: 10px;
     position: absolute;
@@ -37,6 +38,11 @@
     cursor: pointer;
 }
 
+.uploadBtn:hover {
+    background: #2a48d2;
+    box-shadow: 0 0 5px 0px black;
+}
+
 .closeBtn {
     padding: 10px 20px;
     font-size: 18px;
@@ -47,4 +53,9 @@
     margin-top: 20px;
     box-shadow: 0 0 3px 0px black;
     cursor: pointer;
+}
+
+.closeBtn:hover {
+    background: #e31919;
+    box-shadow: 0 0 5px 0px black;
 }

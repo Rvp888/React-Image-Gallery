@@ -17,8 +17,9 @@
     background: #4ff5b0;
     box-shadow: 0 0 10px 3px black;
     border-radius: 0 0 10px 10px;
-    background: radial-gradient(#84e6ed, #f397c0, #56f2c3, #66f194);
+    background: conic-gradient(#84e6ed 0deg, #f397c0 90deg, #56f2c3 180deg, #66f194 0deg);
     color:rgb(32, 12, 163);
+    font-family:cursive;
 }
 
 .search-bar {
